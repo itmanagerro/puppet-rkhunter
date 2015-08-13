@@ -1,0 +1,20 @@
+##
+# managed by Puppet, local changes will be overwritten
+##
+
+<% if defined?(@cron_daily_run) -%>CRON_DAILY_RUN=<%= @cron_daily_run %>
+<% end -%>
+<% if defined?(@cron_db_update) -%>CRON_DB_UPDATE=<%= @cron_db_update %>
+<% end -%>
+<% if defined?(@db_update_email) -%>DB_UPDATE_EMAIL=<%= @db_update_email %>
+<% end -%>
+<% if defined?(@mail_on_warning) -%>REPORT_EMAIL=<%= @mail_on_warning %>
+<% end -%>
+<% if defined?(@apt_autogen) -%>APT_AUTOGEN=<%= @apt_autogen %>
+<% end -%>
+<% if defined?(@nice) -%>NICE=<%= @nice %>
+<% end -%>
+<% if defined?(@run_check_on_battery) -%>RUN_CHECK_ON_BATTERY=<%= @run_check_on_battery %>
+<% end -%>
+<% if defined?(@diag_scan) -%>DIAG_SCAN=<%= @diag_scan %>
+<% end -%>

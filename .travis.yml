@@ -1,0 +1,39 @@
+---
+branches:
+  only:
+  - master
+language: ruby
+bundler_args: --without development
+script: 
+  - bundle exec rake spec SPEC_OPTS='--format documentation'
+  - sudo apt-get update && sudo apt-get -y install puppet
+  - pwd
+  - ls -laR /etc/puppet
+  - sudo mkdir /etc/puppet/modules/rkhunter
+  - sudo cp -a . /etc/puppet/modules/rkhunter
+  - sudo puppet module list
+sudo:
+  - required
+rvm:
+  - 1.9.3
+  - 2.0.0
+gemfile: .gemfile
+env:
+  matrix:
+    - PUPPET_GEM_VERSION="~> 3.1.0"
+    - PUPPET_GEM_VERSION="~> 3.2.0"
+    - PUPPET_GEM_VERSION="~> 3.3.0"
+    - PUPPET_GEM_VERSION="~> 3.4.0"
+    - PUPPET_GEM_VERSION="~> 3.5.0"
+    - PUPPET_GEM_VERSION="~> 3.6.0"
+    - PUPPET_GEM_VERSION="~> 3.7.0"
+    - PUPPET_GEM_VERSION="~> 3.8.1"
+    - PUPPET_GEM_VERSION="~> 4.0.0"
+    - PUPPET_GEM_VERSION="~> 4.1.0"
+matrix:
+  exclude:
+    - rvm: 2.0.0
+      env: PUPPET_GEM_VERSION="~> 3.1.0"
+      gemfile: .gemfile
+notifications:
+  email: mihai.cornateanu@itmanager.ro

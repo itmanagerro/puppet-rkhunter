@@ -1,0 +1,30 @@
+#!/bin/sh
+##
+# managed by Puppet, local changes will be overwritten
+##
+RKHUNTER=/usr/bin/rkhunter
+test -x $RKHUNTER || exit 0
+. <%= @configDefault %>
+# Do not run daily check if running on battery except if explicitly allowed
+if [ -x /usr/bin/on_ac_power >/dev/null 2>&1 ]; then
+    on_ac_power >/dev/null 2>&1
+    [ $? -eq 1 -a "<% @run_check_on_battery %>" != "true" ] && exit 0
+fi
+case "<%= @cron_daily_run %>" in
+     [YyTt]*)
+        OUTFILE=`/bin/mktemp -p <%= @tmpdir %> rkhcronlog.XXXXXXXXXX` || exit 1
+        nice -n $NICE $RKHUNTER --cronjob --report-warnings-only --appendlog > $OUTFILE
+        if [ -s "$OUTFILE" -a -n "$REPORT_EMAIL" ]; then
+          (
+            echo "Subject: [rkhunter] Warnings found on machine: <%= @fqdn %>"
+            echo "To: $REPORT_EMAIL"
+            echo ""
+            cat $OUTFILE
+          ) | /usr/sbin/sendmail $REPORT_EMAIL
+        fi
+        rm -f $OUTFILE
+        ;;
+      *)
+       exit 0
+       ;;
+esac

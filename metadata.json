@@ -1,0 +1,28 @@
+{
+  "name": "itmanagerro-rkhunter",
+  "version": "1.0.1",
+  "author": "Mihai Cornateanu",
+  "summary": "RKHunter Module",
+  "license": "Apache-2.0",
+  "source": "https://github.com/itmanagerro/puppet-rkhunter.git",
+  "description": "Manage RKHunter installation and configuration with Puppet",
+  "project_page": "https://github.com/itmanagerro/puppet-rkhunter",
+  "issues_url": "https://github.com/itmanagerro/puppet-rkhunter/issues",
+  "tags": ["puppet", "module", "rkhunter", "rootkit", "hunter", "security", "trojan", "backdoor", "detection"],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [ "6.6", "6.7" ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [ "6.0.10", "7.8", "8.1" ]
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">=1.2.3 <6.5.4"
+    }
+  ]
+}

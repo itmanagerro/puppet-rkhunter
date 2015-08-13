@@ -1,0 +1,4 @@
+.gemfile.lock
+.bundle
+spec/fixtures
+pkg/
