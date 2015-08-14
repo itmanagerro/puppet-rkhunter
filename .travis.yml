@@ -6,14 +6,6 @@ language: ruby
 bundler_args: --without development
 script: 
   - bundle exec rake spec SPEC_OPTS='--format documentation'
-  - sudo apt-get update && sudo apt-get -y install puppet
-  - pwd
-  - ls -laR /etc/puppet
-  - sudo mkdir /etc/puppet/modules/rkhunter
-  - sudo cp -a . /etc/puppet/modules/rkhunter
-  - sudo puppet module list
-sudo:
-  - required
 rvm:
   - 1.9.3
   - 2.0.0

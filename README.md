@@ -75,9 +75,9 @@ class
 ### Full List of optional configuration parameters:
 
 ```
-allowdevfile
-allowhiddendir
-allowhiddenfile
+allowdevfile (array)
+allowhiddendir  (array)
+allowhiddenfile (array)
 allowprocdelfile
 allowproclisten
 allowpromiscif
