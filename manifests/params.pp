@@ -122,7 +122,7 @@ class rkhunter::params
       ]
   }
   $empty_logfiles = undef
-  $enable_tests = 'all'
+  $enable_tests = ['all']
   $epoch_date_cmd = 'PERL'
   $exclude_user_fileprop_files_dirs = undef
   $existwhitelist =
@@ -141,7 +141,7 @@ class rkhunter::params
   $lock_timeout = 300
   $logfile = '/var/log/rkhunter.log'
   $mail_cmd = "mail -s \'[rkhunter] Warnings found on machine: ${::fqdn}\'"
-  $mail_on_warning = 'root@localhost'
+  $mail_on_warning = ['root@localhost']
   $mirrors_mode = 0
   $missing_logfiles = undef
   $modules_dir = undef
