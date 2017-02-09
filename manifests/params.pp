@@ -142,6 +142,7 @@ class rkhunter::params
   $logfile = '/var/log/rkhunter.log'
   $mail_cmd = "mail -s \'[rkhunter] Warnings found on machine: ${::fqdn}\'"
   $mail_on_warning = ['root@localhost']
+  $mail_from_cronjob = ['root@localhost']
   $mirrors_mode = 0
   $missing_logfiles = undef
   $modules_dir = undef
