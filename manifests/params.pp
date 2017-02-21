@@ -139,9 +139,15 @@ class rkhunter::params
   $installdir = '/usr'
   $language = 'en'
   $lock_timeout = 300
-  $logfile = '/var/log/rkhunter.log'
+  $logfile = $::operatingsystem ?
+  {
+    /^(CentOS|RedHat)$/ => '/var/log/rkhunter/rkhunter.log',
+    /^(Debian|Ubuntu)$/ => '/var/log/rkhunter.log',
+    default             => fail("${::operatingsystem} is not supported")
+  }
   $mail_cmd = "mail -s \'[rkhunter] Warnings found on machine: ${::fqdn}\'"
   $mail_on_warning = ['root@localhost']
+  $mail_from_cronjob = ['root@localhost']
   $mirrors_mode = 0
   $missing_logfiles = undef
   $modules_dir = undef

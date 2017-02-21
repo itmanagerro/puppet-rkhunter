@@ -46,6 +46,7 @@ class rkhunter
   $lock_timeout = $rkhunter::params::lock_timeout,
   $logfile = $rkhunter::params::logfile,
   $mail_cmd = $rkhunter::params::mail_cmd,
+  $mail_from_cron = $rkhunter::params::mail_from_cron,
   $mail_on_warning = $rkhunter::params::mail_on_warning,
   $mirrors_mode = $rkhunter::params::mirrors_mode,
   $missing_logfiles = $rkhunter::params::missing_logfiles,
