@@ -1,0 +1,47 @@
+##
+# managed by Puppet, local changes will be overwritten
+##
+# This config file contains a list of directories both with binaries
+# and libraries prelink should consider by default.
+# If a directory name is prefixed with `-l ', the directory hierarchy
+# will be walked as long as filesystem boundaries are not crossed.
+# If a directory name is prefixed with `-h ', symbolic links in a
+# directory hierarchy are followed.
+# Directories or files with `-b ' prefix will be blacklisted.
+-b *.la
+-b *.png
+-b *.py
+-b *.pl
+-b *.pm
+-b *.sh
+-b *.xml
+-b *.xslt
+-b *.a
+-b *.js
+-b /usr/bin/ceph*
+-b /usr/lib/apt
+-b /usr/bin/apt-*
+-b /usr/bin/docker*
+-b /usr/bin/ld.gold
+-b /usr/bin/ufraw-batch
+-b /usr/bin/nmap
+-b /usr/bin/lshw
+-b /sbin/gdisk
+-b /sbin/cgdisk
+-b /sbin/sgdisk
+-b /sbin/fixparts
+-b /usr/lib/klibc/bin
+-b /lib/modules
+-b /usr/lib/locale
+-l /usr/local/sbin
+-l /sbin
+-l /usr/sbin
+-l /usr/local/bin
+-l /bin
+-l /usr/bin
+-l /usr/X11R6/bin
+-l /usr/games
+-l /usr/local/lib
+-l /lib
+-l /usr/lib
+-l /usr/X11R6/lib

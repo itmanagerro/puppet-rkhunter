@@ -21,10 +21,25 @@ class rkhunter::config inherits rkhunter
       before    => File[$rkhunter::config],
       content   => template($rkhunter::configDefaultTemplate);
 
+    $rkhunter::basedir:
+      ensure => directory,
+      owner  => root,
+      group  => root,
+      before => File[$rkhunter::tmpdir];
+
     $rkhunter::tmpdir:
       ensure => directory,
       owner  => root,
       group  => root,
-      before => File[$rkhunter::config]
+      before => File[$rkhunter::config];
+
+    $rkhunter::prelink_config:
+      ensure    => present,
+      mode      => '0640',
+      owner     => root,
+      group     => root,
+      path      => $rkhunter::prelink_config,
+      show_diff => false,
+      content   => template($rkhunter::prelink_configTemplate);
   }
 }
