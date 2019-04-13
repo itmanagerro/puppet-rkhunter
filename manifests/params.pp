@@ -87,9 +87,10 @@ class rkhunter::params
   $config = '/etc/rkhunter.conf'
   $configDefault = $::operatingsystem ?
   {
-    'CentOS' => '/etc/sysconfig/rkhunter',
-    'Debian' => '/etc/default/rkhunter',
-    default  => fail("${::operatingsystem} is not supported")
+    'CentOS'      => '/etc/sysconfig/rkhunter',
+    'Debian'      => '/etc/default/rkhunter',
+    'OracleLinux' =>'/etc/sysconfig/rkhunter',
+    default       => fail("${::operatingsystem} is not supported")
   }
   $configDefaultTemplate = 'rkhunter/etc/rkhunter.default.erb'
   $configTemplate = 'rkhunter/etc/rkhunter.conf.erb'
@@ -151,9 +152,10 @@ class rkhunter::params
   $phalanx2_dirtest = 0
   $pkgmgr = $::operatingsystem ?
   {
-    'CentOS' => 'RPM',
-    'Debian' => 'DPKG',
-    default  => 'none'
+    'CentOS'      => 'RPM',
+    'Debian'      => 'DPKG',
+    'OracleLinux' => 'RPM',
+    default       => 'none'
   }
   $pkgmgr_no_vrfy = undef
   $port_path_whitelist = undef
